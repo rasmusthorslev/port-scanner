@@ -1,0 +1,29 @@
+Lav en meget simpel port scanner med socket, 
+derefter tilføj error handling,
+og sidst testing
+
+exe:
+chmod +x scanner.py
+
+launch server (for testing): 
+python3 -m http.server 8000 
+//^ binds to 0.0.0.0:8000 (accessible to anyone on LAN at 192.168.x.x:port)
+
+run:
+python3 scanner.py 127.0.0.1 8000
+
+
+notes:
+0.0.0.0 = All interfaces on your machine (LAN + localhost)
+127.0.0.1 = Only own machine (loopback)
+Use main(argv) to create entrypoint if scanenr is made to a function, 
+then simply python3 scanner.py 127.0.0.1 8000
+
+Import to other file?:
+
+    from scanner import scan_once
+
+    ok, msg = scan_once("127.0.0.1", 8000)
+    print(ok, msg)
+
+Maybe turn into a little UI? uwu
