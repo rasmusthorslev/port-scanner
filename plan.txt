@@ -16,14 +16,7 @@ python3 scanner.py 127.0.0.1 8000
 notes:
 0.0.0.0 = All interfaces on your machine (LAN + localhost)
 127.0.0.1 = Only own machine (loopback)
-Use main(argv) to create entrypoint if scanenr is made to a function, 
-then simply python3 scanner.py 127.0.0.1 8000
+create main(argv) entrypoint, make execable
 
-Import to other file?:
-
-    from scanner import scan_once
-
-    ok, msg = scan_once("127.0.0.1", 8000)
-    print(ok, msg)
-
-Maybe turn into a little UI? uwu
+display results with json file
+implement asyncio
