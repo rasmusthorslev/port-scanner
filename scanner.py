@@ -1,5 +1,11 @@
 import socket, sys
 
+def resolve_address(host: str) -> str:
+    if socket.getaddrinfo(host, None, 0, socket.SOCK_STREAM):
+        return host
+    else:
+        return ""
+
 
 def scan_port(host: str, port: int) -> str:
     """Returns a string status of the queried host:port"""
@@ -22,7 +28,12 @@ def main(argv) -> int:
     if len(argv)!=3:
         print("error: scanner.py takes 2 arguments <host> <port>")
         return 2
-    host = argv[1] # Lav noget host = resolve_address(argv[1])
+    try:
+        host = resolve_address(argv[1])
+    except:
+        print(f"Could not resolve host {argv[1]}")
+        return 2
+
     try:
         port = int(argv[2])
     except ValueError:
