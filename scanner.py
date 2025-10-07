@@ -1,6 +1,7 @@
 import socket, sys
 
 def resolve_address(host: str) -> str:
+    """Returns the host if host is resolvable, otherwise error."""
     if socket.getaddrinfo(host, None, 0, socket.SOCK_STREAM):
         return host
     else:
