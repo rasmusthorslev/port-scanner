@@ -22,7 +22,7 @@ def main(argv) -> int:
     if len(argv)!=3:
         print("error: scanner.py takes 2 arguments <host> <port>")
         return 2
-    host = argv[1]
+    host = argv[1] # Lav noget host = resolve_address(argv[1])
     try:
         port = int(argv[2])
     except ValueError:
